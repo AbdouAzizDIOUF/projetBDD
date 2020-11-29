@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parapharmacie{% endblock %}
+
+{% block body %}
+    <h1>Parapharmacie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ parapharmacie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ parapharmacie.nom }}</td>
+            </tr>
+            <tr>
+                <th>CodeProd</th>
+                <td>{{ parapharmacie.codeProd }}</td>
+            </tr>
+            <tr>
+                <th>PrixProd</th>
+                <td>{{ parapharmacie.prixProd }}</td>
+            </tr>
+            <tr>
+                <th>NoticeProd</th>
+                <td>{{ parapharmacie.noticeProd }}</td>
+            </tr>
+            <tr>
+                <th>Fabriquant</th>
+                <td>{{ parapharmacie.fabriquant }}</td>
+            </tr>
+            <tr>
+                <th>EstDisponible</th>
+                <td>{{ parapharmacie.estDisponible ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ parapharmacie.stock }}</td>
+            </tr>
+            <tr>
+                <th>Expire_at</th>
+                <td>{{ parapharmacie.expireAt ? parapharmacie.expireAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('parapharmacie_index') }}">back to list</a>
+
+    <a href="{{ path('parapharmacie_edit', {'id': parapharmacie.id}) }}">edit</a>
+
+    {{ include('parapharmacie/_delete_form.html.twig') }}
+{% endblock %}

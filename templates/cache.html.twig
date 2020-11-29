@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parapharmacie index{% endblock %}
+
+{% block body %}
+    <h1>Parapharmacie index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>CodeProd</th>
+            <th>PrixProd</th>
+            <th>NoticeProd</th>
+            <th>Fabriquant</th>
+            <th>EstDisponible</th>
+            <th>Stock</th>
+            <th>Expire_at</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for parapharmacie in parapharmacies %}
+            <tr>
+                <td>{{ parapharmacie.id }}</td>
+                <td>{{ parapharmacie.nom }}</td>
+                <td>{{ parapharmacie.codeProd }}</td>
+                <td>{{ parapharmacie.prixProd }}</td>
+                <td>{{ parapharmacie.noticeProd }}</td>
+                <td>{{ parapharmacie.fabriquant }}</td>
+                <td>{{ parapharmacie.estDisponible ? 'Yes' : 'No' }}</td>
+                <td>{{ parapharmacie.stock }}</td>
+                <td>{{ parapharmacie.expireAt ? parapharmacie.expireAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('parapharmacie_show', {'id': parapharmacie.id}) }}">show</a>
+                    <a href="{{ path('parapharmacie_edit', {'id': parapharmacie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('parapharmacie_new') }}">Create new</a>
+{% endblock %}
