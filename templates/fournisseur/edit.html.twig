@@ -64,10 +64,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Medicament</h6>
-                        <a class="collapse-item" href="{{ path('medicament_index') }}">Liste des medicaments</a>
+                        <a class="collapse-item" href="{{ path("medicament_index") }}">Liste des medicaments</a>
                         <a class="collapse-item" href="{{ path('medicament_new') }}">Ajouter un Medicament</a>
                         <a class="collapse-item" href="{{ path('category_med_index') }}">Liste des categories</a>
-                        <a class="collapse-item" href="#">Ajouter un categorie</a>
+                        <a class="collapse-item" href="{{ path('category_med_new') }}">Ajouter un categorie</a>
 
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rayons</h6>
                         <a class="collapse-item" href="{{ path('rayon_index') }}">Les Rayons</a>
-                        <a class="collapse-item" href="{{ path('rayon_new') }}">Ajouter un nouveau rayon</a>
+                        <a class="collapse-item" href="{{  path('rayon_new')}}">Ajouter un nouveau rayon</a>
                     </div>
 
                 </div>
@@ -195,13 +195,14 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter une nouvelle categorie</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Modification d'un fournisseur</h1>
                     <div class="page-top">
 
                         {{ form_start(form) }}
                         {{ form_widget(form)}}
-                        <input type="submit" class="btn btn-success" value="Enregistrer">
+                        <input type="submit" class="btn btn-success" value="Enregistrer les modifications">
                         {{ form_end(form) }}
+
                     </div>
                 </div>
                 <!-- /.container-fluid -->

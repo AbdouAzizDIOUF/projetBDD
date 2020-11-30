@@ -67,7 +67,7 @@
                         <a class="collapse-item" href="{{ path('medicament_index') }}">Liste des medicaments</a>
                         <a class="collapse-item" href="{{ path('medicament_new') }}">Ajouter un Medicament</a>
                         <a class="collapse-item" href="{{ path('category_med_index') }}">Liste des categories</a>
-                        <a class="collapse-item" href="#">Ajouter un categorie</a>
+                        <a class="collapse-item" href="{{ path('category_med_new') }}">Ajouter un categorie</a>
 
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Accessoire Medical</h6>
+                        <h6 class="collapse-header">Accessoire medical</h6>
                         <a class="collapse-item" href="{{ path('accessoir_med_index') }}">Liste des accessoires </a>
                         <a class="collapse-item" href="{{ path('accessoir_med_new') }}">Ajouter un accesoire</a>
 
@@ -125,7 +125,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Fournisseurs</h6>
                         <a class="collapse-item" href="{{ path('fournisseur_index') }}">Liste des fournisseurs</a>
-                        <a class="collapse-item" href="{{ path('fournisseur_new') }}">Ajouter un fournisseur</a>
+                        <a class="collapse-item" href="{{ path('fournisseur_nex') }}">Ajouter un fournisseur</a>
                         <a class="collapse-item" href="{{ path('fournir_index') }}">Liste des livraisons</a>
                         <a class="collapse-item" href="{{ path('fournir_new') }}">Ajouter une livraison</a>
                     </div>
@@ -195,13 +195,15 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter une nouvelle categorie</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter un accessoire medical</h1>
                     <div class="page-top">
 
                         {{ form_start(form) }}
                         {{ form_widget(form)}}
                         <input type="submit" class="btn btn-success" value="Enregistrer">
                         {{ form_end(form) }}
+
+                        <a href="{{ path('accessoir_med_index') }}">back to list</a>
                     </div>
                 </div>
                 <!-- /.container-fluid -->

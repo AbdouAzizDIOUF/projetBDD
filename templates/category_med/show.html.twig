@@ -83,8 +83,8 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Parapharmacie</h6>
-                        <a class="collapse-item" href="utilities-color.html">Liste des produits</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter un produit </a>
+                        <a class="collapse-item" href="{{ path("parapharmacie_index") }}">Liste des produits</a>
+                        <a class="collapse-item" href="{{ path("parapharmacie_new") }}">Ajouter un produit </a>
 
                     </div>
                 </div>
@@ -98,9 +98,9 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Medicament</h6>
-                        <a class="collapse-item" href="utilities-color.html">Liste des accessoires </a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter un accesoire</a>
+                        <h6 class="collapse-header">Accessoire Medical</h6>
+                        <a class="collapse-item" href="{{ path('accessoir_med_index') }}">Liste des accessoires </a>
+                        <a class="collapse-item" href="{{ path('accesssoir_med_new') }}">Ajouter un accesoire</a>
 
                     </div>
                 </div>
@@ -124,8 +124,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Fournisseurs</h6>
-                        <a class="collapse-item" href="">Liste des fournisseurs</a>
-                        <a class="collapse-item" href="">Ajouter un fournisseur</a>
+                        <a class="collapse-item" href="{{ path('fournisseur_index') }}">Liste des fournisseurs</a>
+                        <a class="collapse-item" href="{{ path('fournisseur_new') }}">Ajouter un fournisseur</a>
+                        <a class="collapse-item" href="{{ path('fournir_index') }}">Liste des livraisons</a>
+                        <a class="collapse-item" href="{{ path('fournir_new') }}">Ajouter une livraison</a>
                     </div>
 
                 </div>
@@ -146,8 +148,8 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rayons</h6>
-                        <a class="collapse-item" href="utilities-color.html">Les Rayons</a>
-                        <a class="collapse-item" href="utilities-border.html">Ajouter un nouveau rayon</a>
+                        <a class="collapse-item" href="{{ path('rayon_index') }}">Les Rayons</a>
+                        <a class="collapse-item" href="{{ path('rayon_new') }}">Ajouter un nouveau rayon</a>
                     </div>
 
                 </div>
@@ -193,9 +195,9 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Modification de  Medicament</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Categorie de Medicament</h1>
                     <div class="page-top">
-                        <h1>Medicament</h1>
+                        <h1></h1>
 
                         <table class="table">
                             <tbody>
@@ -209,6 +211,7 @@
                             </tr>
                             </tbody>
                         </table>
+
 
 
                         <a href="{{ path('category_med_edit', {'id': category_med.id}) }}"><button class="btn btn-warning">edit</button></a>

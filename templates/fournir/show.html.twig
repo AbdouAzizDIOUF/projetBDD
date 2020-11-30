@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournir{% endblock %}
+
+{% block body %}
+    <h1>Fournir</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fournir.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ fournir.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Create_at</th>
+                <td>{{ fournir.createAt ? fournir.createAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('fournir_index') }}">back to list</a>
+
+    <a href="{{ path('fournir_edit', {'id': fournir.id}) }}">edit</a>
+
+    {{ include('fournir/_delete_form.html.twig') }}
+{% endblock %}

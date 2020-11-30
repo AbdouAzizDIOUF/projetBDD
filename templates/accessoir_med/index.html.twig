@@ -64,10 +64,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Medicament</h6>
-                        <a class="collapse-item" href="{{ path('medicament_index') }}">Liste des medicaments</a>
+                        <a class="collapse-item" href="{{path('medicament_index')}}">Liste des medicaments</a>
                         <a class="collapse-item" href="{{ path('medicament_new') }}">Ajouter un Medicament</a>
                         <a class="collapse-item" href="{{ path('category_med_index') }}">Liste des categories</a>
-                        <a class="collapse-item" href="#">Ajouter un categorie</a>
+                        <a class="collapse-item" href="{{ path('category_med_new') }}">Ajouter un categorie</a>
 
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Accessoire Medical</h6>
+                        <h6 class="collapse-header">Accessoire medical</h6>
                         <a class="collapse-item" href="{{ path('accessoir_med_index') }}">Liste des accessoires </a>
                         <a class="collapse-item" href="{{ path('accessoir_med_new') }}">Ajouter un accesoire</a>
 
@@ -195,13 +195,52 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter une nouvelle categorie</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Liste des medicaments</h1>
                     <div class="page-top">
+                        <div class="container-fluid">
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <th>CodeProd</th>
+                                                <th>PrixProd</th>
+                                                <th>EstDisponible</th>
+                                                <th>actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for accessoir_med in accessoir_meds %}
+                                                <tr>
+                                                    <td>{{ accessoir_med.nom }}</td>
+                                                    <td>{{ accessoir_med.codeProd }}</td>
+                                                    <td>{{ accessoir_med.prixProd }}</td>
+                                                    <td>{{ accessoir_med.estDisponible ? 'Yes' : 'No' }}</td>
+                                                    <td>
+                                                        <a href="{{ path('accessoir_med_show', {'id': accessoir_med.id}) }}"><button class="btn btn-primary">Voir plus</button></a>
+                                                        <a href="{{ path('accessoir_med_edit', {'id': accessoir_med.id}) }}"><button class="btn btn-warning">editer</button></a>
+                                                        {{ include('accessoir_med/_delete_form.html.twig') }}
+                                                    </td>
+                                                </tr>
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="9">no records found</td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
 
-                        {{ form_start(form) }}
-                        {{ form_widget(form)}}
-                        <input type="submit" class="btn btn-success" value="Enregistrer">
-                        {{ form_end(form) }}
+                            <a href="{{ path('accessoir_med_new') }}">Create new</a>
+                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->

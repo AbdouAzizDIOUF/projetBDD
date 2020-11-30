@@ -67,7 +67,7 @@
                         <a class="collapse-item" href="{{ path('medicament_index') }}">Liste des medicaments</a>
                         <a class="collapse-item" href="{{ path('medicament_new') }}">Ajouter un Medicament</a>
                         <a class="collapse-item" href="{{ path('category_med_index') }}">Liste des categories</a>
-                        <a class="collapse-item" href="#">Ajouter un categorie</a>
+                        <a class="collapse-item" href="{{ path('category_med_new') }}">Ajouter un categorie</a>
 
                     </div>
                 </div>
@@ -195,13 +195,46 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter une nouvelle categorie</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Accessoire medical</h1>
                     <div class="page-top">
 
-                        {{ form_start(form) }}
-                        {{ form_widget(form)}}
-                        <input type="submit" class="btn btn-success" value="Enregistrer">
-                        {{ form_end(form) }}
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ accessoir_med.nom }}</td>
+                            </tr>
+                            <tr>
+                                <th>CodeProd</th>
+                                <td>{{ accessoir_med.codeProd }}</td>
+                            </tr>
+                            <tr>
+                                <th>PrixProd</th>
+                                <td>{{ accessoir_med.prixProd }}</td>
+                            </tr>
+                            <tr>
+                                <th>NoticeProd</th>
+                                <td>{{ accessoir_med.noticeProd }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fabriquant</th>
+                                <td>{{ accessoir_med.fabriquant }}</td>
+                            </tr>
+                            <tr>
+                                <th>EstDisponible</th>
+                                <td>{{ accessoir_med.estDisponible ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Stock</th>
+                                <td>{{ accessoir_med.stock }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <a href="{{ path('accessoir_med_edit', {'id': accessoir_med.id}) }}"><button class="btn btn-warning">edit</button></a>
+
+                        {{ include('accessoir_med/_delete_form.html.twig') }}
                     </div>
                 </div>
                 <!-- /.container-fluid -->

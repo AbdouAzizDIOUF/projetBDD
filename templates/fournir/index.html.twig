@@ -67,7 +67,7 @@
                         <a class="collapse-item" href="{{ path('medicament_index') }}">Liste des medicaments</a>
                         <a class="collapse-item" href="{{ path('medicament_new') }}">Ajouter un Medicament</a>
                         <a class="collapse-item" href="{{ path('category_med_index') }}">Liste des categories</a>
-                        <a class="collapse-item" href="#">Ajouter un categorie</a>
+                        <a class="collapse-item" href="{{ path('category_med_new') }}">Ajouter un categorie</a>
 
                     </div>
                 </div>
@@ -195,13 +195,52 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Ajouter une nouvelle categorie</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Liste des livraisons</h1>
                     <div class="page-top">
+                        <div class="container-fluid">
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                <tr>
+                                                    <th>Produit</th>
+                                                    <th>Fournisseur</th>
+                                                    <th>Quantité</th>
+                                                    <th>Delivered_on</th>
+                                                    <th>actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for fournir in fournirs %}
+                                                    <tr>
+                                                        <td>{{ fournir.produit }}</td>
+                                                        <td>{{ fournir.fournisseur }}</td>
+                                                        <td>{{ fournir.quantity }}</td>
+                                                        <td>{{ fournir.createAt ? fournir.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                                                        <td>
+                                                            <a href="{{ path('fournir_show', {'id': fournir.id}) }}"><button class="btn btn-primary">voir plus</button></a>
+                                                            <a href="{{ path('fournir_edit', {'id': fournir.id}) }}"><button class="btn btn-warning">editer</button></a>
+                                                            {{ include('fournir/_delete_form.html.twig') }}
+                                                        </td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td colspan="4">no records found</td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                            </div>
 
-                        {{ form_start(form) }}
-                        {{ form_widget(form)}}
-                        <input type="submit" class="btn btn-success" value="Enregistrer">
-                        {{ form_end(form) }}
+                            <a href="{{ path('fournisseur_new') }}">Create new</a>
+                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->

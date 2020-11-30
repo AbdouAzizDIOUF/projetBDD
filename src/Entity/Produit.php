@@ -67,6 +67,11 @@ abstract class Produit
      */
     private $stock;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Achat::class, mappedBy="produit", cascade={"persist", "remove"})
+     */
+    private $achat;
+
 
     /**
      * @param mixed $id
@@ -236,5 +241,26 @@ abstract class Produit
         $this->stock = $stock;
 
         return $this;
+    }
+
+    public function getAchat(): ?Achat
+    {
+        return $this->achat;
+    }
+
+    public function setAchat(?Achat $achat): self
+    {
+        $this->achat = $achat;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newProduit = null === $achat ? null : $this;
+        if ($achat->getProduit() !== $newProduit) {
+            $achat->setProduit($newProduit);
+        }
+
+        return $this;
+    }
+    public function __toString(){
+        return $this->nom;
     }
 }
