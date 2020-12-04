@@ -6,9 +6,12 @@ use App\Entity\AccessoirMed;
 use App\Entity\CategoryMed;
 use App\Entity\Medicament;
 use App\Entity\Parapharmacie;
+use App\Entity\Utlisaateur;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AjoutController extends AbstractController
 {
@@ -18,10 +21,18 @@ class AjoutController extends AbstractController
 
 
     /**
-     * @Route("/home", name="home")
+     * @Route("/ajout2", name="home")
      */
-    public function index2(): Response
+    public function index2(UserPasswordEncoderInterface $encoder): Response
     {
+        $utilisateur= new Utlisaateur();
+        $utilisateur->setUsername('admin@admin.com');
+        $utilisateur->setPassword($encoder->encodePassword($utilisateur,"admin"));
+        $utilisateur->setPassword2($encoder->encodePassword($utilisateur,"admin"));
+        $utilisateur->setRoles("admin");
+        $manager=$this->getDoctrine()->getManager();
+        $manager->persist($utilisateur);
+        $manager->flush();
         return $this->render('index.html.twig'
         );
     }
@@ -31,6 +42,7 @@ class AjoutController extends AbstractController
      */
     public function index(): Response
     {
+
         return $this->render('ajout/index.html.twig', [
             'controller_name' => 'AjoutController',
         ]);

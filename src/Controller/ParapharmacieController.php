@@ -38,6 +38,7 @@ class ParapharmacieController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($parapharmacie);
             $entityManager->flush();
+            $this->addFlash("success","nouveau produit parapharmacetique ajouté avec succés");
 
             return $this->redirectToRoute('parapharmacie_index');
         }
@@ -68,6 +69,7 @@ class ParapharmacieController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectué avec succés");
 
             return $this->redirectToRoute('parapharmacie_index');
         }

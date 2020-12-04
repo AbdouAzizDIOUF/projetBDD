@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201129230811 extends AbstractMigration
+final class Version20201203113738 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,11 +20,11 @@ final class Version20201129230811 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP SEQUENCE achat_id_sequ CASCADE');
-        $this->addSql('ALTER TABLE achat ADD produit_id INT DEFAULT NULL');
+        $this->addSql('CREATE SEQUENCE "user_id_seq" INCREMENT BY 1 MINVALUE 1 START 1');
+        $this->addSql('CREATE TABLE "user" (id INT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D649E7927C74 ON "user" (email)');
         $this->addSql('ALTER TABLE achat ALTER id DROP DEFAULT');
         $this->addSql('ALTER TABLE achat ALTER create_at SET NOT NULL');
-        $this->addSql('ALTER TABLE achat ADD CONSTRAINT FK_26A98456F347EFB FOREIGN KEY (produit_id) REFERENCES produit (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_26A98456F347EFB ON achat (produit_id)');
     }
 
@@ -32,13 +32,12 @@ final class Version20201129230811 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('CREATE SEQUENCE achat_id_sequ INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('ALTER TABLE achat DROP CONSTRAINT FK_26A98456F347EFB');
-        $this->addSql('DROP INDEX UNIQ_26A98456F347EFB');
-        $this->addSql('ALTER TABLE achat DROP produit_id');
+        $this->addSql('DROP SEQUENCE "user_id_seq" CASCADE');
+        $this->addSql('DROP TABLE "user"');
         $this->addSql('CREATE SEQUENCE achat_id_seq');
         $this->addSql('SELECT setval(\'achat_id_seq\', (SELECT MAX(id) FROM achat))');
         $this->addSql('ALTER TABLE achat ALTER id SET DEFAULT nextval(\'achat_id_seq\')');
         $this->addSql('ALTER TABLE achat ALTER create_at DROP NOT NULL');
+        $this->addSql('CREATE INDEX IDX_26A98456F347EFB ON achat (produit_id)');
     }
 }

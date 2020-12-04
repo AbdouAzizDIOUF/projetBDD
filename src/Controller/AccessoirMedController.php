@@ -38,6 +38,7 @@ class AccessoirMedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($accessoirMed);
             $entityManager->flush();
+            $this->addFlash("success","Nouveau accessoire medicale ajouté avec succés");
 
             return $this->redirectToRoute('accessoir_med_index');
         }
@@ -68,8 +69,10 @@ class AccessoirMedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectuée avec succés");
 
             return $this->redirectToRoute('accessoir_med_index');
+
         }
 
         return $this->render('accessoir_med/edit.html.twig', [

@@ -157,9 +157,15 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ path('admin',{'id':4}) }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon compte</span></a>
+            </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>deconnexion</span></a>
             </li>
 
 
@@ -193,9 +199,14 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Liste des medicaments</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Liste des fournisseurs</h1>
                     <div class="page-top">
                         <div class="container-fluid">
                             <!-- DataTales Example -->
@@ -224,8 +235,8 @@
                                                         <td>{{ fournisseur.email }}</td>
                                                         <td>{{ fournisseur.numTel }}</td>
                                                         <td>
-                                                            <a href="{{ path('fournisseur_show', {'id': fournisseur.id}) }}"><button class="btn btn-primary">show</button></a>
-                                                            <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}"><button class="btn btn-warning">edit</button></a>
+                                                            <a href="{{ path('fournisseur_show', {'id': fournisseur.id}) }}"><button class="btn btn-primary">voir plus</button></a>
+                                                            <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}"><button class="btn btn-warning">editer</button></a>
                                                             {{ include('fournisseur/_delete_form.html.twig') }}
                                                         </td>
                                                     </tr>

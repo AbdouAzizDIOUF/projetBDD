@@ -1,25 +1,14 @@
-<thead>
+<tbody>
 <tr>
     <th>Id</th>
-    <th>Quantity</th>
-    <th>Create_at</th>
-    <th>actions</th>
+    <td>{{ fournir.id }}</td>
 </tr>
-</thead>
-<tbody>
-{% for fournir in fournirs %}
-    <tr>
-        <td>{{ fournir.id }}</td>
-        <td>{{ fournir.quantity }}</td>
-        <td>{{ fournir.createAt ? fournir.createAt|date('Y-m-d H:i:s') : '' }}</td>
-        <td>
-            <a href="{{ path('fournir_show', {'id': fournir.id}) }}">show</a>
-            <a href="{{ path('fournir_edit', {'id': fournir.id}) }}">edit</a>
-        </td>
-    </tr>
-{% else %}
-    <tr>
-        <td colspan="4">no records found</td>
-    </tr>
-{% endfor %}
+<tr>
+    <th>Quantity</th>
+    <td>{{ fournir.quantity }}</td>
+</tr>
+<tr>
+    <th>Create_at</th>
+    <td>{{ fournir.createAt ? fournir.createAt|date('Y-m-d H:i:s') : '' }}</td>
+</tr>
 </tbody>

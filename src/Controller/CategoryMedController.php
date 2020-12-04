@@ -38,6 +38,7 @@ class CategoryMedController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($categoryMed);
             $entityManager->flush();
+            $this->addFlash("success","nouvelle categorie medicale ajoutée avec succés");
 
             return $this->redirectToRoute('category_med_index');
         }
@@ -68,6 +69,7 @@ class CategoryMedController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectuée avec succés");
 
             return $this->redirectToRoute('category_med_index');
         }

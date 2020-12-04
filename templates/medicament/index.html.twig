@@ -157,9 +157,16 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ path('admin',{'id':4}) }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon compte</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>deconnexion</span></a>
             </li>
 
 
@@ -187,12 +194,18 @@
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
+
                     </button>
 
                 </nav>                        <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4  font-weight-bold text-primary">Liste des medicaments</h1>

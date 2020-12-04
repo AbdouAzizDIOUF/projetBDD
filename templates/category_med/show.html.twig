@@ -100,7 +100,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Accessoire Medical</h6>
                         <a class="collapse-item" href="{{ path('accessoir_med_index') }}">Liste des accessoires </a>
-                        <a class="collapse-item" href="{{ path('accesssoir_med_new') }}">Ajouter un accesoire</a>
+                        <a class="collapse-item" href="{{ path('accessoir_med_new') }}">Ajouter un accesoire</a>
 
                     </div>
                 </div>
@@ -157,9 +157,15 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ path('admin',{'id':4}) }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon compte</span></a>
+            </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>deconnexion</span></a>
             </li>
 
 

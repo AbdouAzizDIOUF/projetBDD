@@ -38,6 +38,7 @@ class MedicamentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($medicament);
             $entityManager->flush();
+            $this->addFlash("success","ajout du nouveau medicament effectué avec succés");
 
             return $this->redirectToRoute('medicament_index');
         }
@@ -68,6 +69,7 @@ class MedicamentController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectué avec succés");
 
             return $this->redirectToRoute('medicament_index');
         }

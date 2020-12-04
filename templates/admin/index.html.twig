@@ -98,7 +98,7 @@
                 <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Accessoire medical</h6>
+                        <h6 class="collapse-header">Accessoire Medical</h6>
                         <a class="collapse-item" href="{{ path('accessoir_med_index') }}">Liste des accessoires </a>
                         <a class="collapse-item" href="{{ path('accessoir_med_new') }}">Ajouter un accesoire</a>
 
@@ -148,7 +148,7 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rayons</h6>
-                        <a class="collapse-item" href="{{path('rayon_index') }}">Les Rayons</a>
+                        <a class="collapse-item" href="{{ path('rayon_index') }}">Les Rayons</a>
                         <a class="collapse-item" href="{{ path('rayon_new') }}">Ajouter un nouveau rayon</a>
                     </div>
 
@@ -157,7 +157,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('admin',{'id':4}) }}">
+                <a class="nav-link" href="#">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon compte</span></a>
             </li>
@@ -201,12 +201,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4  font-weight-bold text-primary">Modification information d'une livraison</h1>
+                    <h1 class="h3 mb-4  font-weight-bold text-primary">Modification de  mot de passe</h1>
                     <div class="page-top">
 
                         {{ form_start(form) }}
-                        {{ form_widget(form)}}
-                        <input type="submit" class="btn btn-success" value="Enregistrer les modifications">
+                        {{ form_row(form.password,{'label':'entrer le nouveau mot de passe'}) }}
+                        {{ form_row(form.password2,{'label':'repeter le mot de passe'}) }}
+                        <input type="submit" value="enregistrer les modifications" class="btn btn-success">
                         {{ form_end(form) }}
 
                     </div>

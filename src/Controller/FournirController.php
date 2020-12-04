@@ -38,6 +38,7 @@ class FournirController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($fournir);
             $entityManager->flush();
+            $this->addFlash("success","Nouvelle livraison ajoutée avec succés");
 
             return $this->redirectToRoute('fournir_index');
         }
@@ -68,6 +69,7 @@ class FournirController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectuée avec succés");
 
             return $this->redirectToRoute('fournir_index');
         }

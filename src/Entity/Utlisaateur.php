@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UtlisaateurRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UtlisaateurRepository::class)
  */
-class Utlisaateur
+class Utlisaateur implements UserInterface
+
 {
     /**
      * @ORM\Id
@@ -23,7 +25,7 @@ class Utlisaateur
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
@@ -66,9 +68,9 @@ class Utlisaateur
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getRoles()
     {
-        return $this->roles;
+        return ['ROLE_USER'];
     }
 
     public function setRoles(string $roles): self
@@ -88,5 +90,13 @@ class Utlisaateur
         $this->password2 = $password2;
 
         return $this;
+    }
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
     }
 }

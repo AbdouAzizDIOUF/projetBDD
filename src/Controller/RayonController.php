@@ -38,6 +38,7 @@ class RayonController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($rayon);
             $entityManager->flush();
+            $this->addFlash("success"," nouveau rayon ajouté avec succés");
 
             return $this->redirectToRoute('rayon_index');
         }
@@ -68,7 +69,7 @@ class RayonController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash("success","modification effectué avec succés");
             return $this->redirectToRoute('rayon_index');
         }
 

@@ -157,9 +157,15 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ path('admin',{'id':4}) }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Mon compte</span></a>
+            </li>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>deconnexion</span></a>
             </li>
 
 
@@ -236,7 +242,7 @@
                         </table>
 
 
-                        <a href="{{ path('parapharmacie_edit', {'id': parapharmacie.id}) }}"><button class="btn btn-warning">edit</button></a>
+                        <a href="{{ path('parapharmacie_edit', {'id': parapharmacie.id}) }}"><button class="btn btn-warning">editer</button></a>
 
                         {{ include('parapharmacie/_delete_form.html.twig') }}
                     </div>

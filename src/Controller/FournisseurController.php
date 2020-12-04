@@ -38,6 +38,7 @@ class FournisseurController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($fournisseur);
             $entityManager->flush();
+            $this->addFlash("success","Nouveau fournisseur ajouté avec succés");
 
             return $this->redirectToRoute('fournisseur_index');
         }
@@ -68,6 +69,7 @@ class FournisseurController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash("success","modification effectué avec succés");
 
             return $this->redirectToRoute('fournisseur_index');
         }
