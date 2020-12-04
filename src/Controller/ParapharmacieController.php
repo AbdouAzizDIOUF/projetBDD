@@ -18,6 +18,7 @@ class ParapharmacieController extends AbstractController
     /**
      * @Route("/", name="parapharmacie_index", methods={"GET"})
      */
+    /*cette fonction permet d'afficher la liste de tous les produit parapharmacetique*/
     public function index(ParapharmacieRepository $parapharmacieRepository): Response
     {
         return $this->render('parapharmacie/index.html.twig', [
@@ -28,6 +29,7 @@ class ParapharmacieController extends AbstractController
     /**
      * @Route("/new", name="parapharmacie_new", methods={"GET","POST"})
      */
+    /*cette fonction permet d'ajouter un produit parapharmacetique*/
     public function new(Request $request): Response
     {
         $parapharmacie = new Parapharmacie();
@@ -52,6 +54,7 @@ class ParapharmacieController extends AbstractController
     /**
      * @Route("/{id}", name="parapharmacie_show", methods={"GET"})
      */
+    /*cette fonction permet d'afficher explicitement un produit parapharmacetique*/
     public function show(Parapharmacie $parapharmacie): Response
     {
         return $this->render('parapharmacie/show.html.twig', [
@@ -62,6 +65,7 @@ class ParapharmacieController extends AbstractController
     /**
      * @Route("/{id}/edit", name="parapharmacie_edit", methods={"GET","POST"})
      */
+    /*cette fonction permet de modifier un produit parapharmacetique*/
     public function edit(Request $request, Parapharmacie $parapharmacie): Response
     {
         $form = $this->createForm(ParapharmacieType::class, $parapharmacie);
@@ -83,6 +87,7 @@ class ParapharmacieController extends AbstractController
     /**
      * @Route("/{id}", name="parapharmacie_delete", methods={"DELETE"})
      */
+    /*cette fonction permet de supprimer un produit parapharmacetique*/
     public function delete(Request $request, Parapharmacie $parapharmacie): Response
     {
         if ($this->isCsrfTokenValid('delete'.$parapharmacie->getId(), $request->request->get('_token'))) {

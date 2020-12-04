@@ -19,7 +19,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/{id}/edit", name="admin")
      */
-
+        /*cette fonction permet à l'administrateur de pouvoir modifier son mot de passe*/
     public function formulaireEdit($id, Request $request,UserPasswordEncoderInterface $encoder){
         $manager = $this->getDoctrine()->getManager();
         $repo=$this->getDoctrine()->getRepository(Utlisaateur::class);

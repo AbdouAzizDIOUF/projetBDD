@@ -23,6 +23,7 @@ class AjoutController extends AbstractController
     /**
      * @Route("/ajout2", name="home")
      */
+    /*ici j'ai utilisé cette fonction pour definir les identifiants de l'admin et en encodants son mot de passe*/
     public function index2(UserPasswordEncoderInterface $encoder): Response
     {
         $utilisateur= new Utlisaateur();

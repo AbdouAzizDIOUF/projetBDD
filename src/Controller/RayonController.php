@@ -18,6 +18,7 @@ class RayonController extends AbstractController
     /**
      * @Route("/", name="rayon_index", methods={"GET"})
      */
+    /*cette fonction nous retourne la liste des rayons*/
     public function index(RayonRepository $rayonRepository): Response
     {
         return $this->render('rayon/index.html.twig', [
@@ -28,6 +29,7 @@ class RayonController extends AbstractController
     /**
      * @Route("/new", name="rayon_new", methods={"GET","POST"})
      */
+    /*cette fonction nous permet la creation d'un nouveau rayon*/
     public function new(Request $request): Response
     {
         $rayon = new Rayon();
@@ -52,6 +54,7 @@ class RayonController extends AbstractController
     /**
      * @Route("/{id}", name="rayon_show", methods={"GET"})
      */
+    /*cette fonction nous permet d'afficher explicitement un rayon precis en utilisant son id*/
     public function show(Rayon $rayon): Response
     {
         return $this->render('rayon/show.html.twig', [
@@ -62,6 +65,7 @@ class RayonController extends AbstractController
     /**
      * @Route("/{id}/edit", name="rayon_edit", methods={"GET","POST"})
      */
+    /*cette fonction permet de modifier un rayon*/
     public function edit(Request $request, Rayon $rayon): Response
     {
         $form = $this->createForm(RayonType::class, $rayon);
@@ -82,6 +86,7 @@ class RayonController extends AbstractController
     /**
      * @Route("/{id}", name="rayon_delete", methods={"DELETE"})
      */
+    /*cette fonction nous permet de supprimer un rayon*/
     public function delete(Request $request, Rayon $rayon): Response
     {
         if ($this->isCsrfTokenValid('delete'.$rayon->getId(), $request->request->get('_token'))) {

@@ -18,6 +18,7 @@ class FournisseurController extends AbstractController
     /**
      * @Route("/", name="fournisseur_index", methods={"GET"})
      */
+    /*cette fonction retourne la liste de tous les fournisseurs*/
     public function index(FournisseurRepository $fournisseurRepository): Response
     {
         return $this->render('fournisseur/index.html.twig', [
@@ -28,6 +29,7 @@ class FournisseurController extends AbstractController
     /**
      * @Route("/new", name="fournisseur_new", methods={"GET","POST"})
      */
+    /*cette fonction permet d'ajouter un nouveau fournisseur*/
     public function new(Request $request): Response
     {
         $fournisseur = new Fournisseur();
@@ -52,6 +54,7 @@ class FournisseurController extends AbstractController
     /**
      * @Route("/{id}", name="fournisseur_show", methods={"GET"})
      */
+    /*cette fonction permet d'afficher explicitement un fournisseur*/
     public function show(Fournisseur $fournisseur): Response
     {
         return $this->render('fournisseur/show.html.twig', [
@@ -62,6 +65,7 @@ class FournisseurController extends AbstractController
     /**
      * @Route("/{id}/edit", name="fournisseur_edit", methods={"GET","POST"})
      */
+    /*cette fonction permet de modifier un fournisseur*/
     public function edit(Request $request, Fournisseur $fournisseur): Response
     {
         $form = $this->createForm(FournisseurType::class, $fournisseur);
@@ -83,6 +87,7 @@ class FournisseurController extends AbstractController
     /**
      * @Route("/{id}", name="fournisseur_delete", methods={"DELETE"})
      */
+    /*cette fonction permet de supprimer un fournisseur*/
     public function delete(Request $request, Fournisseur $fournisseur): Response
     {
         if ($this->isCsrfTokenValid('delete'.$fournisseur->getId(), $request->request->get('_token'))) {

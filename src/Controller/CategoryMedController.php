@@ -18,6 +18,7 @@ class CategoryMedController extends AbstractController
     /**
      * @Route("/", name="category_med_index", methods={"GET"})
      */
+    /*/*cette fonction retourne la liste de toutes les categories de  medicaments*/
     public function index(CategoryMedRepository $categoryMedRepository): Response
     {
         return $this->render('category_med/index.html.twig', [
@@ -28,6 +29,7 @@ class CategoryMedController extends AbstractController
     /**
      * @Route("/new", name="category_med_new", methods={"GET","POST"})
      */
+    /*cette fonction permet d'ajouter une nouvelle categorie de medicament*/
     public function new(Request $request): Response
     {
         $categoryMed = new CategoryMed();
@@ -52,6 +54,7 @@ class CategoryMedController extends AbstractController
     /**
      * @Route("/{id}", name="category_med_show", methods={"GET"})
      */
+    /*cette fonction permet d'afficher explicitement une nouvelle categorie de medicament*/
     public function show(CategoryMed $categoryMed): Response
     {
         return $this->render('category_med/show.html.twig', [
@@ -62,6 +65,7 @@ class CategoryMedController extends AbstractController
     /**
      * @Route("/{id}/edit", name="category_med_edit", methods={"GET","POST"})
      */
+    /*cette fonction permet de modifier une nouvelle categorie de medicament*/
     public function edit(Request $request, CategoryMed $categoryMed): Response
     {
         $form = $this->createForm(CategoryMedType::class, $categoryMed);
@@ -83,6 +87,7 @@ class CategoryMedController extends AbstractController
     /**
      * @Route("/{id}", name="category_med_delete", methods={"DELETE"})
      */
+    /*cette fonction permet de supprimer une categorie de medicament*/
     public function delete(Request $request, CategoryMed $categoryMed): Response
     {
         if ($this->isCsrfTokenValid('delete'.$categoryMed->getId(), $request->request->get('_token'))) {

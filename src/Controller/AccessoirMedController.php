@@ -18,6 +18,7 @@ class AccessoirMedController extends AbstractController
     /**
      * @Route("/", name="accessoir_med_index", methods={"GET"})
      */
+    /*cette fonction retourne la liste de tous les accessoires medicales*/
     public function index(AccessoirMedRepository $accessoirMedRepository): Response
     {
         return $this->render('accessoir_med/index.html.twig', [
@@ -28,6 +29,7 @@ class AccessoirMedController extends AbstractController
     /**
      * @Route("/new", name="accessoir_med_new", methods={"GET","POST"})
      */
+    /*cette fonction nous permet d'ajouter un accessoire medicale*/
     public function new(Request $request): Response
     {
         $accessoirMed = new AccessoirMed();
@@ -52,6 +54,7 @@ class AccessoirMedController extends AbstractController
     /**
      * @Route("/{id}", name="accessoir_med_show", methods={"GET"})
      */
+    /*cette fonction nous permet de montrer un accessoire medicale*/
     public function show(AccessoirMed $accessoirMed): Response
     {
         return $this->render('accessoir_med/show.html.twig', [
@@ -62,6 +65,7 @@ class AccessoirMedController extends AbstractController
     /**
      * @Route("/{id}/edit", name="accessoir_med_edit", methods={"GET","POST"})
      */
+    /*cette fonction nous permet de modifier un accessoire medicale*/
     public function edit(Request $request, AccessoirMed $accessoirMed): Response
     {
         $form = $this->createForm(AccessoirMedType::class, $accessoirMed);
@@ -84,6 +88,7 @@ class AccessoirMedController extends AbstractController
     /**
      * @Route("/{id}", name="accessoir_med_delete", methods={"DELETE"})
      */
+    /*cette fonction nous permet de supprimer un accessoire medicale*/
     public function delete(Request $request, AccessoirMed $accessoirMed): Response
     {
         if ($this->isCsrfTokenValid('delete'.$accessoirMed->getId(), $request->request->get('_token'))) {

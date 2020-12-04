@@ -12,6 +12,7 @@ class LoginController extends AbstractController
     /**
      * @Route("/", name="login")
      */
+    /*cette fonction nous redirige vers le formulaire de connexxion*/
     public function index(): Response
     {
         $this->addFlash("success","Authentification reussi");

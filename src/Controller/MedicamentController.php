@@ -18,6 +18,7 @@ class MedicamentController extends AbstractController
     /**
      * @Route("/", name="medicament_index", methods={"GET"})
      */
+    /*cette fonction retourne la liste de tous les medicaments*/
     public function index(MedicamentRepository $medicamentRepository): Response
     {
         return $this->render('medicament/index.html.twig', [
@@ -28,6 +29,7 @@ class MedicamentController extends AbstractController
     /**
      * @Route("/new", name="medicament_new", methods={"GET","POST"})
      */
+    /*cette fonction permet d'ajouter un nouveau medicament*/
     public function new(Request $request): Response
     {
         $medicament = new Medicament();

@@ -18,6 +18,7 @@ class FournirController extends AbstractController
     /**
      * @Route("/", name="fournir_index", methods={"GET"})
      */
+    /*cette fonction retourne la liste de toutes les livraisons*/
     public function index(FournirRepository $fournirRepository): Response
     {
         return $this->render('fournir/index.html.twig', [
@@ -28,6 +29,7 @@ class FournirController extends AbstractController
     /**
      * @Route("/new", name="fournir_new", methods={"GET","POST"})
      */
+    /*cette fonction permet d'ajouter une nouvelle livraison*/
     public function new(Request $request): Response
     {
         $fournir = new Fournir();
@@ -52,6 +54,7 @@ class FournirController extends AbstractController
     /**
      * @Route("/{id}", name="fournir_show", methods={"GET"})
      */
+    /*cette fonction permet d'afficher explicitement une livraisons*/
     public function show(Fournir $fournir): Response
     {
         return $this->render('fournir/show.html.twig', [
@@ -62,6 +65,7 @@ class FournirController extends AbstractController
     /**
      * @Route("/{id}/edit", name="fournir_edit", methods={"GET","POST"})
      */
+    /*cette fonction permet de modifier une livraison*/
     public function edit(Request $request, Fournir $fournir): Response
     {
         $form = $this->createForm(FournirType::class, $fournir);
@@ -83,6 +87,7 @@ class FournirController extends AbstractController
     /**
      * @Route("/{id}", name="fournir_delete", methods={"DELETE"})
      */
+    /*cette fonction permet de supprimer une livraison*/
     public function delete(Request $request, Fournir $fournir): Response
     {
         if ($this->isCsrfTokenValid('delete'.$fournir->getId(), $request->request->get('_token'))) {
